@@ -1,0 +1,15 @@
+{
+  "name": "evaluacion-js-intermedio-1",
+  "version": "1.0.0",
+  "description": "Escribe una función llamada `determinarPosNegCero` que tome un número como argumento y devuelva un mensaje indicando si el número es positivo, negativo o cero. Si el número es mayor que cero, debe devolver \"Positivo\". Si el número es menor que cero, debe devolver \"Negativo\". Y si el número es igual a cero, debe devolver \"Cero\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.6.4"
+  }
+}
