@@ -179,6 +179,49 @@ describe("Ejercicio N°5: Sistema para Consultorio Médico", () => {
   });
 });
 
+describe("Ejercicio N°6: cardGame", () => {
+  test("Empate", () => {
+    const playerOneDeck = [
+      { attack: 5, defense: 5 },
+      { attack: 15, defense: 10 },
+    ];
+
+    const playerTwoDeck = [
+      { attack: 5, defense: 5 },
+      { attack: 15, defense: 10 },
+    ];
+
+    expect(cardGame(playerOneDeck, playerTwoDeck)).toBe("TIE")
+  })
+
+  test("PLAYER ONE gana", () => {
+    const playerOneDeck = [
+      { attack: 20, defense: 5 },
+      { attack: 15, defense: 10 },
+    ];
+
+    const playerTwoDeck = [
+      { attack: 10, defense: 5 },
+      { attack: 15, defense: 10 },
+    ];
+    expect(cardGame(playerOneDeck, playerTwoDeck)).toBe("PLAYER ONE")
+  });
+
+  test("PLAYER TWO gana", () => {
+    const playerOneDeck = [
+      { attack: 10, defense: 5 },
+      { attack: 15, defense: 10 },
+    ];
+
+    const playerTwoDeck = [
+      { attack: 20, defense: 5 },
+      { attack: 15, defense: 10 },
+    ];
+    expect(cardGame(playerOneDeck, playerTwoDeck)).toBe("PLAYER TWO")
+  });
+
+})
+
 describe("Ejercicio N°7: HEIGHT", () => {
   test("Árbol con una sola raíz", () => {
     const tree = new binarySearchTree(10);
@@ -209,13 +252,19 @@ describe("Ejercicio N°7: HEIGHT", () => {
 });
 
 describe("Ejercicio N°8: Sistema de Pedidos en McDonald's", () => {
-  test("Agregar pedidos", () => {
+  test("Agregar pedidos y obtener números de orden en orden ascendente", () => {
     const sistemaPedidos = new SistemaPedidosMcDonalds();
 
     sistemaPedidos.agregarPedido(101, ["Big Mac", "Papas fritas"]);
     sistemaPedidos.agregarPedido(75, ["Cuarto de Libra", "Refresco"]);
     sistemaPedidos.agregarPedido(120, ["McNuggets"]);
     sistemaPedidos.agregarPedido(50, ["Hamburguesa de pollo"]);
+    //Agregue 2 metodos nuevos debido a que si no realizo la actividad los test funcionan igual.
+    // Obtener los números de orden en orden ascendente
+    const numerosDeOrden = sistemaPedidos.obtenerNumerosDeOrden();
+
+    // Comprobar que los números de orden están ordenados correctamente
+    expect(numerosDeOrden).toEqual([50, 75, 101, 120]);
   });
 });
 

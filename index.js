@@ -237,13 +237,18 @@ sistemaPedidos.agregarPedido(75, ["Cuarto de Libra", "Refresco"]);
 sistemaPedidos.agregarPedido(120, ["McNuggets"]);
 sistemaPedidos.agregarPedido(50, ["Hamburguesa de pollo"]);
 
-// El árbol debería tener la siguiente estructura, donde cada nodo representa un pedido:
-//       101
-//      /   \
-//     75   120
-//    /
-//   50
+El árbol debería tener la siguiente estructura, donde cada nodo representa un pedido:
+      101
+     /   \
+    75   120
+   /
+  50
 
+
+  Obtener los números de orden en orden ascendente creando el metodo obtenerNumerosDeOrden el cual deberia retornar de manera
+  ordenada de MENOR a MAYOR los pedidos cargados
+  Ejemplo:
+    const numerosDeOrden = sistemaPedidos.obtenerNumerosDeOrden(); => debería ser [50, 75, 101, 120]
 
  */
 
@@ -255,6 +260,8 @@ class SistemaPedidosMcDonalds {
   agregarPedido(numeroOrden, productos) {
     // Tu código aca:
   }
+
+  obtenerNumerosDeOrden(){}
 }
 
 // ---------- ALGORITMOS -----------
@@ -279,7 +286,7 @@ const peliculas = [
 const peliculasOrdenadas = ordenarPeliculas(peliculas);
 
 console.log(peliculasOrdenadas); 
-// debe retornar : 
+debe retornar : 
 [
   { titulo: 'Inception', calificacion: 1 },
   { titulo: 'Pulp Fiction', calificacion: 3 },
