@@ -260,6 +260,8 @@ class SistemaPedidosMcDonalds {
   agregarPedido(numeroOrden, productos) {
     // Tu código aca:
   }
+
+  obtenerNumerosDeOrden(){}
 }
 
 // ---------- ALGORITMOS -----------
