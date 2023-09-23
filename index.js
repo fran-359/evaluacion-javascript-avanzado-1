@@ -47,12 +47,10 @@ function isAncestor(genealogyTree, ancestor, descendant) {
 // ------------LinkedList------------
 
 //implementamos linkedList() como nueva lista enlazada
-class LinkedList {
- constructor() {
-    this.head = null;
-    this.size = 0;
+class linkedList {
+  constructor(head){
+  this.head = null;
  }
-
 
 
 /* Ejercicio N°3: Metodo Size
@@ -71,7 +69,6 @@ la LinkedList. En el caso de que la lista se encuentre vacía deberá retornar c
  */
     
  
-    
     const node = {
       value: value,
       next: null
@@ -93,7 +90,6 @@ la LinkedList. En el caso de que la lista se encuentre vacía deberá retornar c
  size() {
     return this.size;
  }
-
 
 
 
