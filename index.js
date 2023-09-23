@@ -6,9 +6,13 @@
   Ejemplo de llamada a la función:
   console.log(sumaRecursiva(5)); // Debería imprimir 15 (1 + 2 + 3 + 4 + 5)
 */
-function sumaRecursiva() {
-  // Tu código aca:
+function sumaRecursiva(n) {
+  if (n === 1) {
+    return 1;
+  }
+  return n + sumaRecursiva(n - 1);
 }
+ console.log(sumaRecursiva(5));
 
 /* Ejercicio N°2: Parientes Simpsons
 
@@ -36,15 +40,20 @@ Ejemplo:
   */
 
 function isAncestor(genealogyTree, ancestor, descendant) {
-  // Tu código aca:
-}
+
+ }
+
 
 // ------------LinkedList------------
 
 //implementamos linkedList() como nueva lista enlazada
-function linkedList() {
-  this.head = null;
-}
+class LinkedList {
+ constructor() {
+    this.head = null;
+    this.size = 0;
+ }
+
+
 
 /* Ejercicio N°3: Metodo Size
 
@@ -60,10 +69,35 @@ la LinkedList. En el caso de que la lista se encuentre vacía deberá retornar c
     lista.add(3);
     lista.size(); --> 3
  */
+    
+ 
+    
+    const node = {
+      value: value,
+      next: null
+    };
 
-linkedList.prototype.size = function () {
-  // Tu código aca:
-};
+    if (this.head === null) {
+      this.head = node;
+    } else {
+      let current = this.head;
+      while (current.next !== null) {
+        current = current.next;
+      }
+      current.next = node;
+    }
+
+    this.size++;
+ }
+
+ size() {
+    return this.size;
+ }
+
+
+
+
+   
 
 /* Ejercicio N°4: Metodo SwitchPos
 
@@ -85,7 +119,7 @@ linkedList.prototype.size = function () {
     Suponiendo que se pide una posición inválida: removeFromPos(8) --> false */
 
 linkedList.prototype.switchPos = function (pos1, pos2) {
-  // Tu código aca:
+
 };
 
 // ---------- QUEUE -----------
@@ -124,28 +158,28 @@ console.log(consultorio.cantidadPacientes()); // Debería devolver 2
 */
 
 class ConsultorioMedico {
-  constructor() {
-    // Tu código aca:
+  constructor(nombre) {
+    this.nombre = fran;
   }
 
   // Agrega un paciente al final de la cola.
   agregarPaciente(nombre) {
-    // Tu código aca:
+    agregarPaciente.push("Fran");
   }
 
   // Atiende al siguiente paciente y lo elimina de la cola.
   siguientePaciente() {
-    // Tu código aca:
+   this.agregarPaciente.pop();
   }
 
   // Devuelve la cantidad de pacientes en espera.
   cantidadPacientes() {
-    // Tu código aca:
+    console.log(agregarPaciente.length);
   }
 
   // Devuelve un arreglo con los nombres de los pacientes en espera.
   listaPacientes() {
-    // Tu código aca:
+    console.log(agregarPaciente) 
   }
 }
 
@@ -214,19 +248,22 @@ function binarySearchTree(value) {
 }
 
 binarySearchTree.prototype.height = function () {
-  // Tu código aca:
+  
 };
 
 /* Ejercicio N°8: Sistema de Pedidos en McDonald's
  
-Imagina que estás desarrollando un sistema de pedidos para McDonald's. Cada pedido tiene un número de orden único y una lista de productos que el cliente ha solicitado. 
+Imagina que estás desarrollando un sistema de pedidos para McDonald's. Cada pedido tiene un número de orden único y una lista de productos 
+que el cliente ha solicitado. 
 Debes implementar una clase SistemaPedidosMcDonalds que incluya un método agregarPedido para agregar pedidos al sistema. 
 
 -Los pedidos se deben insertar en el árbol binario de acuerdo con el número de orden de la siguiente manera:
 
-.Si el número de orden del pedido que deseas agregar es menor o igual que el número de orden del pedido actual en el árbol, debe colocarse en el subárbol izquierdo.
+.Si el número de orden del pedido que deseas agregar es menor o igual que el número de orden del pedido actual en el árbol, debe colocarse 
+en el subárbol izquierdo.
 
-.Si el número de orden del pedido que deseas agregar es mayor que el número de orden del pedido actual en el árbol, debe colocarse en el subárbol derecho.
+.Si el número de orden del pedido que deseas agregar es mayor que el número de orden del pedido actual en el árbol, debe colocarse en el 
+subárbol derecho.
 
 A continuación, se muestra un ejemplo de cómo podría utilizarse la clase:
 
@@ -254,21 +291,24 @@ El árbol debería tener la siguiente estructura, donde cada nodo representa un 
 
 class SistemaPedidosMcDonalds {
   constructor() {
-    // Tu código aca:
+  
   }
 
   agregarPedido(numeroOrden, productos) {
-    // Tu código aca:
+    
   }
 
-  obtenerNumerosDeOrden(){}
+  obtenerNumerosDeOrden(){
+    const numerosDeOrden = sistemaPedidos.obtenerNumerosDeOrden();
+  }
 }
 
 // ---------- ALGORITMOS -----------
 
 /* Ejercicio N°9: Ordenar Películas por Calificación
 
-Dada una lista de películas representada como objetos con una propiedad calificacion que es un número entero, implementa una función en JavaScript llamada ordenarPeliculas que ordene la lista de películas por su calificación utilizando el algoritmo Quicksort.
+Dada una lista de películas representada como objetos con una propiedad calificacion que es un número entero, implementa una función en 
+JavaScript llamada ordenarPeliculas que ordene la lista de películas por su calificación utilizando el algoritmo Quicksort.
 
 La función ordenarPeliculas debe tomar como argumento la lista de películas y devolver la lista ordenada.
 
@@ -299,8 +339,28 @@ debe retornar :
 */
 
 function ordenarPeliculas(peliculas) {
-  // Tu código aca:
+  if (peliculas.length <= 1) {
+    return peliculas;
+  }
+
+  const pivot = peliculas[0];
+  const left = [];
+  const right = [];
+
+  for (let i = 1; i < peliculas.length; i++) {
+    if (peliculas[i] < pivot) {
+      left.push(peliculas[i]);
+    } else {
+      right.push(peliculas[i]);
+    }
+  }
+
+  return [...ordenarPeliculas(left), pivot, ...ordenarPeliculas(right)];
 }
+
+const peliculas = [5, 1, 9, 3, 8];
+const peliculasOrdenadas = ordenarPeliculas(peliculas);
+console.log(peliculasOrdenadas);
 
 /* Ejercicio N°10: Orndenar Array de Números
 
@@ -315,9 +375,39 @@ console.log(numerosOrdenados); // deberia retornar [1, 3, 5, 6, 7, 8, 9, 12]
 
 */
 
-function mergeSort(array) {
-  // Tu código aca:
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
 }
+
+function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex), right.slice(rightIndex));
+}
+
+const miArray = [5, 2, 9, 3, 1];
+const arrayOrdenado = mergeSort(miArray);
+console.log(arrayOrdenado); // [1, 2, 3, 5, 9]
 
 // ❌NO ELIMINAR NI MODIFICAR NADA DEBAJO DE ESTA LINEA❌
 module.exports = {
